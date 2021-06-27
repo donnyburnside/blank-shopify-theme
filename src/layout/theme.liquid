@@ -1,0 +1,28 @@
+<!doctype html>
+<html class="" lang="{{ shop.locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <title>{{ shop.name }}</title>
+
+  {%- if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
+
+  <script>
+    window.theme = window.theme || {};
+  </script>
+
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+  {{ 'theme.js' | asset_url | script_tag }}
+
+  {{ content_for_header }}
+</head>
+
+<body>
+  {{ content_for_layout }}
+</body>
+</html>
